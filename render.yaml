@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: esme-and-jade
+    runtime: static
+    buildCommand: echo "Static site"
+    staticPublishPath: ./public
