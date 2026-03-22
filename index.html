@@ -171,19 +171,19 @@
           <div class="process-icon">🙏</div>
           <h3>In-Person Reiki</h3>
           <p>A gentle, hands-on healing session in a calm, sacred space. Perfect for stress relief, emotional healing, and energy balancing. Culver City, CA.</p>
-          <a href="https://lucehealing.com/#book" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:16px">Book a Session</a>
+          <a href="https://lucehealing.com/#book" class="btn btn-outline luce-booking-link" style="margin-top:16px">Book a Session</a>
         </div>
         <div class="process-card">
           <div class="process-icon">💫</div>
           <h3>Distance Reiki</h3>
           <p>Reiki energy transcends space. Receive a healing session from the comfort of your home, wherever you are. Just as powerful as in-person.</p>
-          <a href="https://lucehealing.com/#book" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:16px">Book a Session</a>
+          <a href="https://lucehealing.com/#book" class="btn btn-outline luce-booking-link" style="margin-top:16px">Book a Session</a>
         </div>
         <div class="process-card">
           <div class="process-icon">🔮</div>
           <h3>Crystal Reiki</h3>
           <p>Combining the power of Reiki with crystal healing. Crystals are placed on or around the body to amplify the energy work and deepen the experience.</p>
-          <a href="https://lucehealing.com/#book" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:16px">Book a Session</a>
+          <a href="https://lucehealing.com/#book" class="btn btn-outline luce-booking-link" style="margin-top:16px">Book a Session</a>
         </div>
       </div>
     </div>
@@ -205,21 +205,21 @@
             <h3>Written Chart Report</h3>
             <div class="tier-price">$75</div>
             <p>A detailed written analysis of your birth chart — planetary placements, houses, aspects, and what they mean for your life path. Delivered as a beautifully formatted PDF.</p>
-            <a href="https://lucehealing.com/#book" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:16px">Book a Reading</a>
+            <a href="https://lucehealing.com/#book" class="btn btn-outline luce-booking-link" style="margin-top:16px">Book a Reading</a>
           </div>
           <div class="tier-card tier-featured">
             <div class="tier-icon">🌟</div>
             <h3>Chart + 30-min Reading</h3>
             <div class="tier-price">$125</div>
             <p>Your written chart report plus a 30-minute personal reading where we walk through your chart together. Ask questions, get clarity, and connect the dots.</p>
-            <a href="https://lucehealing.com/#book" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top:16px">Book a Reading</a>
+            <a href="https://lucehealing.com/#book" class="btn btn-primary luce-booking-link" style="margin-top:16px">Book a Reading</a>
           </div>
           <div class="tier-card">
             <div class="tier-icon">🔭</div>
             <h3>Chart + 60-min Deep Dive</h3>
             <div class="tier-price">$175</div>
             <p>The full experience. Written report plus a 60-minute deep dive session covering transits, progressions, and how the stars are influencing your life right now.</p>
-            <a href="https://lucehealing.com/#book" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:16px">Book a Reading</a>
+            <a href="https://lucehealing.com/#book" class="btn btn-outline luce-booking-link" style="margin-top:16px">Book a Reading</a>
           </div>
         </div>
       </div>
@@ -236,7 +236,7 @@
           <div class="blog-date">March 2026</div>
           <h3>What Is Reiki and How Can It Help You?</h3>
           <p>Reiki is a gentle, non-invasive form of energy healing that works with the body's natural energy systems. Whether you're dealing with stress, emotional pain, or physical tension, Reiki helps restore the flow of energy and brings your body back into balance. As a Certified Reiki Master, I channel universal life force energy through my hands to help clear blockages and promote deep relaxation and healing.</p>
-          <a href="https://lucehealing.com/#book" target="_blank" rel="noopener" class="blog-link">Book a session →</a>
+          <a href="https://lucehealing.com/#book" class="blog-link luce-booking-link">Book a session →</a>
         </article>
         <article class="blog-card">
           <div class="blog-date">March 2026</div>
@@ -335,5 +335,77 @@
   </footer>
 
   <script src="/script.js"></script>
+
+  <!-- Luce Healing Redirect Confirmation Modal -->
+  <div id="luce-redirect-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(44,44,44,0.6);backdrop-filter:blur(4px);align-items:center;justify-content:center;">
+    <div style="background:#FBF8F4;border-radius:16px;max-width:480px;width:92%;padding:36px 32px 28px;box-shadow:0 12px 48px rgba(126,107,168,0.25);border:1px solid #E8E0D4;position:relative;text-align:center;">
+      <div style="font-size:2em;margin-bottom:12px;">✨</div>
+      <h3 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.5rem;color:#2C2C2C;margin-bottom:12px;font-weight:500;">You're being redirected</h3>
+      <p style="color:#3D3D3D;line-height:1.6;margin-bottom:8px;font-size:0.95rem;">You're being redirected to <strong style="color:#7E6BA8;">Luce Healing</strong> (lucehealing.com) to complete your booking.</p>
+      <p style="color:#6B6B6B;line-height:1.6;margin-bottom:20px;font-size:0.88rem;">All healing sessions and chart readings are booked and processed through Luce Healing by Christina Workman.</p>
+      <label style="display:flex;align-items:flex-start;gap:10px;text-align:left;cursor:pointer;margin-bottom:24px;padding:14px 16px;background:#F5EFE6;border-radius:8px;border:1px solid #E8E0D4;">
+        <input type="checkbox" id="luce-redirect-checkbox" style="margin-top:3px;accent-color:#7E6BA8;width:18px;height:18px;flex-shrink:0;cursor:pointer;">
+        <span style="color:#3D3D3D;font-size:0.9rem;line-height:1.5;">I understand I am being redirected to lucehealing.com to book and pay for this service</span>
+      </label>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <a id="luce-redirect-continue" href="#" target="_blank" rel="noopener" style="display:inline-block;width:100%;padding:14px 24px;background:#C8BFE0;color:#999;border-radius:8px;font-weight:600;font-size:0.95rem;text-decoration:none;text-align:center;pointer-events:none;transition:all 0.2s;">Continue to Booking →</a>
+        <button id="luce-redirect-cancel" type="button" style="background:none;border:none;color:#6B6B6B;font-size:0.88rem;cursor:pointer;padding:8px;font-family:'Inter',sans-serif;">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    var modal=document.getElementById('luce-redirect-modal');
+    var checkbox=document.getElementById('luce-redirect-checkbox');
+    var continueBtn=document.getElementById('luce-redirect-continue');
+    var cancelBtn=document.getElementById('luce-redirect-cancel');
+    var currentUrl='';
+
+    function openModal(url){
+      currentUrl=url;
+      checkbox.checked=false;
+      continueBtn.href='#';
+      continueBtn.style.background='#C8BFE0';
+      continueBtn.style.color='#999';
+      continueBtn.style.pointerEvents='none';
+      modal.style.display='flex';
+    }
+
+    function closeModal(){
+      modal.style.display='none';
+      currentUrl='';
+    }
+
+    checkbox.addEventListener('change',function(){
+      if(checkbox.checked){
+        continueBtn.href=currentUrl;
+        continueBtn.style.background='#7E6BA8';
+        continueBtn.style.color='#fff';
+        continueBtn.style.pointerEvents='auto';
+      } else {
+        continueBtn.href='#';
+        continueBtn.style.background='#C8BFE0';
+        continueBtn.style.color='#999';
+        continueBtn.style.pointerEvents='none';
+      }
+    });
+
+    continueBtn.addEventListener('click',function(e){
+      if(!checkbox.checked){e.preventDefault();return;}
+      closeModal();
+    });
+
+    cancelBtn.addEventListener('click',closeModal);
+    modal.addEventListener('click',function(e){if(e.target===modal)closeModal();});
+
+    document.querySelectorAll('.luce-booking-link').forEach(function(link){
+      link.addEventListener('click',function(e){
+        e.preventDefault();
+        openModal(link.getAttribute('href'));
+      });
+    });
+  })();
+  </script>
 </body>
 </html>
