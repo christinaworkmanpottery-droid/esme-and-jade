@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8">
+<style>
+body { margin: 0; padding: 0; background: #000; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+.meme {
+  width: 1080px; height: 1080px;
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
+  font-family: Georgia, serif;
+}
+.bg {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('https://images.unsplash.com/photo-1603344797033-f0f4f587ab60?w=1080&h=1080&fit=crop');
+  background-size: cover; background-position: center;
+}
+.overlay {
+  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15,12,41,0.55);
+}
+.content {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; height: 100%;
+  padding: 70px 80px 55px;
+  box-sizing: border-box;
+  justify-content: center; align-items: center;
+  text-align: center;
+}
+.moon { font-size: 50px; margin-bottom: 15px; }
+.title {
+  font-size: 72px; color: #E8B4B8;
+  letter-spacing: 12px; text-transform: uppercase;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  margin-bottom: 10px;
+}
+.subtitle {
+  font-size: 24px; color: #d4af37;
+  font-style: italic; letter-spacing: 3px;
+  margin-bottom: 50px;
+  font-family: Georgia, serif;
+}
+.properties {
+  font-size: 26px; color: #E8B4B8;
+  line-height: 2.2;
+  font-family: Arial, sans-serif;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.3);
+}
+.properties .bullet { color: #d4af37; margin: 0 8px; }
+.divider {
+  width: 80px; height: 2px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+  margin: 45px auto 25px;
+}
+.brand {
+  font-size: 18px; color: #E8B4B8;
+  letter-spacing: 5px; text-transform: uppercase;
+  font-family: Arial, sans-serif;
+}
+.handle {
+  font-size: 14px; color: rgba(232,180,184,0.5);
+  letter-spacing: 2px; margin-top: 8px;
+  font-family: Arial, sans-serif;
+}
+</style></head><body>
+<div class="meme">
+  <div class="bg"></div>
+  <div class="overlay"></div>
+  <div class="content">
+    <div class="moon">☽</div>
+    <div class="title">Amethyst</div>
+    <div class="subtitle">The Stone of Intuition</div>
+    <div class="properties">
+      Calms the mind<br>
+      <span class="bullet">✦</span><br>
+      Enhances intuition<br>
+      <span class="bullet">✦</span><br>
+      Promotes restful sleep<br>
+      <span class="bullet">✦</span><br>
+      Protects your energy
+    </div>
+    <div class="divider"></div>
+    <div class="brand">ESME & JADE</div>
+    <div class="handle">@esmeandjadejewelry</div>
+  </div>
+</div>
+</body></html>
