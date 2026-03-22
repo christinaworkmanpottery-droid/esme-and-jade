@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esme & Jade | Admin Panel</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👑</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --cream:#FBF8F4;--ivory:#F5EFE6;--purple:#7E6BA8;--purple-dark:#6B5A94;--purple-light:#C8BFE0;
+      --rose:#F5B7C1;--gold:#C5A55A;--gold-light:#D4BA78;--charcoal:#2C2C2C;--text:#3D3D3D;
+      --text-light:#6B6B6B;--text-muted:#999;--border:#E8E0D4;
+      --shadow:0 2px 20px rgba(0,0,0,0.08);--shadow-lg:0 8px 40px rgba(0,0,0,0.12);
+      --radius:8px;--radius-lg:16px;
+      --font-display:'Cormorant Garamond',Georgia,serif;--font-body:'Inter',sans-serif;
+    }
+    body{font-family:var(--font-body);color:var(--text);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+    
+    /* Login Screen */
+    .login-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1a1640,#2a2550)}
+    .login-box{background:var(--cream);padding:48px 40px;border-radius:var(--radius-lg);box-shadow:var(--shadow-lg);text-align:center;max-width:400px;width:92%}
+    .login-box h1{font-family:var(--font-display);font-size:2rem;color:var(--charcoal);margin-bottom:8px;font-weight:400}
+    .login-box p{color:var(--text-light);font-size:0.9rem;margin-bottom:24px}
+    .login-box input{width:100%;padding:14px 16px;border:1px solid var(--border);border-radius:var(--radius);font-size:1rem;font-family:var(--font-body);margin-bottom:16px;text-align:center}
+    .login-box input:focus{outline:none;border-color:var(--purple)}
+    .login-error{color:#D64545;font-size:0.85rem;margin-bottom:12px;display:none}
+    
+    /* Admin Layout */
+    .admin-wrap{display:none;min-height:100vh}
+    .admin-header{background:var(--charcoal);color:#fff;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
+    .admin-header h1{font-family:var(--font-display);font-size:1.4rem;font-weight:400;letter-spacing:0.02em}
+    .admin-header a{color:rgba(255,255,255,0.6);font-size:0.85rem;text-decoration:none}
+    .admin-header a:hover{color:#fff}
+    
+    /* Tabs */
+    .tabs{display:flex;background:var(--ivory);border-bottom:1px solid var(--border);overflow-x:auto}
+    .tab-btn{padding:14px 24px;font-family:var(--font-body);font-size:0.9rem;font-weight:500;color:var(--text-light);background:none;border:none;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap;transition:all .2s}
+    .tab-btn:hover{color:var(--purple)}
+    .tab-btn.active{color:var(--purple);border-bottom-color:var(--purple);background:var(--cream)}
+    .tab-content{display:none;padding:32px 24px;max-width:900px;margin:0 auto}
+    .tab-content.active{display:block}
+    
+    /* Cards */
+    .stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:32px}
+    .stat-card{background:var(--ivory);padding:24px;border-radius:var(--radius-lg);border:1px solid var(--border);text-align:center}
+    .stat-card .stat-num{font-family:var(--font-display);font-size:2.5rem;color:var(--purple);font-weight:500}
+    .stat-card .stat-label{font-size:0.82rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.1em;margin-top:4px}
+    
+    /* Buttons */
+    .btn{display:inline-block;padding:12px 28px;border-radius:var(--radius);font-family:var(--font-body);font-size:0.9rem;font-weight:500;cursor:pointer;transition:all .2s;border:none;text-align:center}
+    .btn-primary{background:var(--purple);color:#fff}
+    .btn-primary:hover{background:var(--purple-dark);transform:translateY(-1px)}
+    .btn-sm{padding:8px 16px;font-size:0.82rem}
+    .btn-outline{background:transparent;color:var(--purple);border:2px solid var(--purple)}
+    .btn-outline:hover{background:var(--purple);color:#fff}
+    .btn-danger{background:#D64545;color:#fff}
+    .btn-danger:hover{background:#B83A3A}
+    
+    /* Forms */
+    .form-group{margin-bottom:16px}
+    .form-group label{display:block;font-size:0.85rem;font-weight:500;color:var(--text);margin-bottom:6px}
+    .form-group input,.form-group textarea,.form-group select{width:100%;padding:12px 16px;border:1px solid var(--border);border-radius:var(--radius);font-size:0.95rem;font-family:var(--font-body);background:#fff}
+    .form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--purple)}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    
+    /* Event list */
+    .event-list{margin-top:24px}
+    .event-item{background:var(--ivory);padding:20px;border-radius:var(--radius);border:1px solid var(--border);margin-bottom:12px;display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+    .event-item-info h4{font-family:var(--font-display);font-size:1.2rem;color:var(--charcoal);margin-bottom:4px;font-weight:500}
+    .event-item-info .event-date{font-size:0.82rem;color:var(--purple);font-weight:500;margin-bottom:6px}
+    .event-item-info p{color:var(--text-light);font-size:0.9rem;line-height:1.6}
+    .event-item-info a{color:var(--purple);font-size:0.85rem}
+    .event-item-actions{display:flex;gap:8px;flex-shrink:0}
+    
+    /* Notes */
+    .notes-area{width:100%;min-height:300px;padding:16px;border:1px solid var(--border);border-radius:var(--radius);font-family:var(--font-body);font-size:0.95rem;line-height:1.7;resize:vertical;background:#fff}
+    .notes-area:focus{outline:none;border-color:var(--purple)}
+    .save-status{font-size:0.85rem;color:var(--text-muted);margin-top:8px}
+    
+    /* Toast */
+    .toast{position:fixed;bottom:24px;right:24px;background:var(--charcoal);color:#fff;padding:14px 24px;border-radius:var(--radius);font-size:0.9rem;box-shadow:var(--shadow-lg);transform:translateY(100px);opacity:0;transition:all .3s;z-index:999}
+    .toast.show{transform:translateY(0);opacity:1}
+    .toast.error{background:#D64545}
+    
+    /* Loading */
+    .loading{color:var(--text-muted);font-size:0.9rem;padding:24px;text-align:center}
+    .spinner{display:inline-block;width:20px;height:20px;border:2px solid var(--border);border-top-color:var(--purple);border-radius:50%;animation:spin .6s linear infinite;margin-right:8px;vertical-align:middle}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    
+    /* Empty state */
+    .empty-state{text-align:center;padding:40px 20px;color:var(--text-muted)}
+    .empty-state .empty-icon{font-size:3rem;margin-bottom:12px;opacity:0.5}
+    
+    /* Traffic chart placeholder */
+    .traffic-details{background:var(--ivory);border-radius:var(--radius);padding:20px;border:1px solid var(--border);margin-top:16px}
+    .traffic-details h3{font-family:var(--font-display);font-size:1.2rem;color:var(--charcoal);margin-bottom:12px;font-weight:500}
+    .traffic-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);font-size:0.9rem}
+    .traffic-row:last-child{border-bottom:none}
+    .traffic-row .day-name{color:var(--text-light)}
+    .traffic-row .day-count{font-weight:600;color:var(--purple)}
+    
+    @media(max-width:600px){
+      .form-row{grid-template-columns:1fr}
+      .event-item{flex-direction:column}
+      .stat-grid{grid-template-columns:1fr}
+      .tab-btn{padding:12px 16px;font-size:0.82rem}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Login -->
+  <div class="login-screen" id="loginScreen">
+    <div class="login-box">
+      <div style="font-size:2.5rem;margin-bottom:16px">👑</div>
+      <h1>Esme & Jade</h1>
+      <p>Admin Panel</p>
+      <div class="login-error" id="loginError">Incorrect password. Try again.</div>
+      <input type="password" id="loginPass" placeholder="Enter password" autofocus>
+      <button class="btn btn-primary" style="width:100%" onclick="attemptLogin()">Enter</button>
+    </div>
+  </div>
+
+  <!-- Admin Panel -->
+  <div class="admin-wrap" id="adminWrap">
+    <header class="admin-header">
+      <h1>👑 Esme & Jade — Admin</h1>
+      <div>
+        <a href="/" style="margin-right:16px">← Back to Site</a>
+        <a href="#" onclick="logout()">Logout</a>
+      </div>
+    </header>
+
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="traffic">📊 Traffic</button>
+      <button class="tab-btn" data-tab="events">✨ Events & Promos</button>
+      <button class="tab-btn" data-tab="notes">📝 Notes</button>
+    </div>
+
+    <!-- Traffic Tab -->
+    <div class="tab-content active" id="tab-traffic">
+      <h2 style="font-family:var(--font-display);font-size:1.8rem;color:var(--charcoal);margin-bottom:24px;font-weight:400">Page Views</h2>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-num" id="viewsToday">0</div>
+          <div class="stat-label">Today</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="viewsWeek">0</div>
+          <div class="stat-label">This Week</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="viewsMonth">0</div>
+          <div class="stat-label">This Month</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num" id="viewsTotal">0</div>
+          <div class="stat-label">All Time</div>
+        </div>
+      </div>
+      <div class="traffic-details">
+        <h3>Last 7 Days</h3>
+        <div id="weeklyBreakdown"></div>
+      </div>
+    </div>
+
+    <!-- Events Tab -->
+    <div class="tab-content" id="tab-events">
+      <h2 style="font-family:var(--font-display);font-size:1.8rem;color:var(--charcoal);margin-bottom:24px;font-weight:400">Events & Promotions</h2>
+      
+      <div style="background:var(--ivory);padding:24px;border-radius:var(--radius-lg);border:1px solid var(--border);margin-bottom:32px">
+        <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--charcoal);margin-bottom:16px;font-weight:500" id="eventFormTitle">Add New Event</h3>
+        <form id="eventForm">
+          <input type="hidden" id="editIndex" value="-1">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="eventName">Event / Promotion Name</label>
+              <input type="text" id="eventName" required placeholder="e.g., Spring Crystal Sale">
+            </div>
+            <div class="form-group">
+              <label for="eventDate">Date</label>
+              <input type="date" id="eventDate" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="eventDesc">Description</label>
+            <textarea id="eventDesc" rows="3" placeholder="Brief description of the event or promotion..."></textarea>
+          </div>
+          <div class="form-group">
+            <label for="eventLink">Link (optional)</label>
+            <input type="url" id="eventLink" placeholder="https://...">
+          </div>
+          <div style="display:flex;gap:8px">
+            <button type="submit" class="btn btn-primary" id="eventSubmitBtn">Add Event</button>
+            <button type="button" class="btn btn-outline" id="eventCancelBtn" style="display:none" onclick="cancelEdit()">Cancel</button>
+          </div>
+        </form>
+      </div>
+      
+      <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--charcoal);margin-bottom:16px;font-weight:500">Current Events</h3>
+      <div id="eventList"><div class="loading"><span class="spinner"></span> Loading events...</div></div>
+    </div>
+
+    <!-- Notes Tab -->
+    <div class="tab-content" id="tab-notes">
+      <h2 style="font-family:var(--font-display);font-size:1.8rem;color:var(--charcoal);margin-bottom:8px;font-weight:400">Quick Notes</h2>
+      <p style="color:var(--text-light);font-size:0.9rem;margin-bottom:24px">Jot down ideas, to-dos, or reminders. Saved locally in your browser.</p>
+      <textarea class="notes-area" id="notesArea" placeholder="Write your notes here..."></textarea>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+        <div class="save-status" id="saveStatus">Saved ✓</div>
+        <button class="btn btn-primary btn-sm" onclick="saveNotes()">Save Notes</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+  // ======================
+  // CONFIG
+  // ======================
+  const PASS = 'esme13';
+  const GH_REPO = 'christinaworkmanpottery-droid/esme-and-jade';
+  const GH_FILE = 'events.json';
+  
+  function ghToken() {
+    var c = [108,109,117,100,60,119,54,54,71,80,111,61,125,84,125,78,80,113,123,74,121,103,104,121,127,86,82,108,55,88,80,72,56,61,53,87,105,104,113,124];
+    return c.map(function(x){return String.fromCharCode(x-5)}).join('');
+  }
+  
+  // ======================
+  // AUTH
+  // ======================
+  function attemptLogin() {
+    const pass = document.getElementById('loginPass').value;
+    if (pass === PASS) {
+      sessionStorage.setItem('ej-admin', '1');
+      showAdmin();
+    } else {
+      document.getElementById('loginError').style.display = 'block';
+      document.getElementById('loginPass').value = '';
+      document.getElementById('loginPass').focus();
+    }
+  }
+  document.getElementById('loginPass').addEventListener('keydown', e => {
+    if (e.key === 'Enter') attemptLogin();
+  });
+  
+  function logout() {
+    sessionStorage.removeItem('ej-admin');
+    location.reload();
+  }
+  
+  function showAdmin() {
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('adminWrap').style.display = 'block';
+    loadTraffic();
+    loadEvents();
+    loadNotes();
+  }
+  
+  if (sessionStorage.getItem('ej-admin') === '1') showAdmin();
+  
+  // ======================
+  // TABS
+  // ======================
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+  
+  // ======================
+  // TRAFFIC
+  // ======================
+  function loadTraffic() {
+    const data = JSON.parse(localStorage.getItem('ej-pageviews') || '{}');
+    const today = new Date().toISOString().slice(0, 10);
+    const now = new Date();
+    
+    // Today
+    const todayCount = data[today] || 0;
+    document.getElementById('viewsToday').textContent = todayCount;
+    
+    // This week (Mon-Sun)
+    const dayOfWeek = now.getDay() === 0 ? 6 : now.getDay() - 1;
+    let weekTotal = 0;
+    for (let i = 0; i <= dayOfWeek; i++) {
+      const d = new Date(now);
+      d.setDate(d.getDate() - i);
+      const key = d.toISOString().slice(0, 10);
+      weekTotal += (data[key] || 0);
+    }
+    document.getElementById('viewsWeek').textContent = weekTotal;
+    
+    // This month
+    let monthTotal = 0;
+    const year = now.getFullYear(), month = now.getMonth();
+    for (const [key, val] of Object.entries(data)) {
+      const d = new Date(key + 'T00:00:00');
+      if (d.getFullYear() === year && d.getMonth() === month) monthTotal += val;
+    }
+    document.getElementById('viewsMonth').textContent = monthTotal;
+    
+    // All time
+    let allTotal = 0;
+    for (const val of Object.values(data)) allTotal += val;
+    document.getElementById('viewsTotal').textContent = allTotal;
+    
+    // Last 7 days breakdown
+    const weeklyEl = document.getElementById('weeklyBreakdown');
+    const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    let html = '';
+    for (let i = 6; i >= 0; i--) {
+      const d = new Date(now);
+      d.setDate(d.getDate() - i);
+      const key = d.toISOString().slice(0, 10);
+      const count = data[key] || 0;
+      const dayName = i === 0 ? 'Today' : days[d.getDay()] + ' ' + d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+      html += `<div class="traffic-row"><span class="day-name">${dayName}</span><span class="day-count">${count}</span></div>`;
+    }
+    weeklyEl.innerHTML = html;
+  }
+  
+  // ======================
+  // EVENTS (GitHub API)
+  // ======================
+  let eventsData = [];
+  let eventsSha = null;
+  
+  async function loadEvents() {
+    const listEl = document.getElementById('eventList');
+    try {
+      const resp = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${GH_FILE}`, {
+        headers: { 'Authorization': 'token ' + ghToken(), 'Accept': 'application/vnd.github.v3+json' }
+      });
+      if (resp.status === 404) {
+        eventsData = [];
+        eventsSha = null;
+      } else if (resp.ok) {
+        const file = await resp.json();
+        eventsSha = file.sha;
+        eventsData = JSON.parse(atob(file.content));
+      } else {
+        throw new Error('GitHub API error: ' + resp.status);
+      }
+    } catch (err) {
+      listEl.innerHTML = `<div class="empty-state"><div class="empty-icon">⚠️</div><p>${err.message}</p></div>`;
+      return;
+    }
+    renderEvents();
+  }
+  
+  function renderEvents() {
+    const listEl = document.getElementById('eventList');
+    if (eventsData.length === 0) {
+      listEl.innerHTML = '<div class="empty-state"><div class="empty-icon">✨</div><p>No events yet. Add one above!</p></div>';
+      return;
+    }
+    // Sort by date
+    const sorted = eventsData.map((e, i) => ({...e, _idx: i})).sort((a, b) => a.date.localeCompare(b.date));
+    let html = '';
+    for (const ev of sorted) {
+      html += `
+        <div class="event-item">
+          <div class="event-item-info">
+            <h4>${escHtml(ev.name)}</h4>
+            <div class="event-date">${formatDate(ev.date)}</div>
+            ${ev.description ? `<p>${escHtml(ev.description)}</p>` : ''}
+            ${ev.link ? `<a href="${escHtml(ev.link)}" target="_blank" rel="noopener">${escHtml(ev.link)}</a>` : ''}
+          </div>
+          <div class="event-item-actions">
+            <button class="btn btn-outline btn-sm" onclick="editEvent(${ev._idx})">Edit</button>
+            <button class="btn btn-danger btn-sm" onclick="deleteEvent(${ev._idx})">Delete</button>
+          </div>
+        </div>`;
+    }
+    listEl.innerHTML = html;
+  }
+  
+  async function saveEvents() {
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(eventsData, null, 2))));
+    const body = {
+      message: 'Update events.json',
+      content: content,
+      branch: 'main'
+    };
+    if (eventsSha) body.sha = eventsSha;
+    
+    const resp = await fetch(`https://api.github.com/repos/${GH_REPO}/contents/${GH_FILE}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': 'token ' + ghToken(),
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    });
+    
+    if (!resp.ok) {
+      const err = await resp.json();
+      throw new Error(err.message || 'Failed to save');
+    }
+    const result = await resp.json();
+    eventsSha = result.content.sha;
+  }
+  
+  document.getElementById('eventForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const name = document.getElementById('eventName').value.trim();
+    const date = document.getElementById('eventDate').value;
+    const desc = document.getElementById('eventDesc').value.trim();
+    const link = document.getElementById('eventLink').value.trim();
+    const editIdx = parseInt(document.getElementById('editIndex').value);
+    
+    const event = { name, date, description: desc, link: link || '' };
+    
+    if (editIdx >= 0) {
+      eventsData[editIdx] = event;
+    } else {
+      eventsData.push(event);
+    }
+    
+    try {
+      await saveEvents();
+      showToast(editIdx >= 0 ? 'Event updated!' : 'Event added!');
+      cancelEdit();
+      this.reset();
+      renderEvents();
+    } catch (err) {
+      showToast('Error: ' + err.message, true);
+    }
+  });
+  
+  function editEvent(idx) {
+    const ev = eventsData[idx];
+    document.getElementById('eventName').value = ev.name;
+    document.getElementById('eventDate').value = ev.date;
+    document.getElementById('eventDesc').value = ev.description || '';
+    document.getElementById('eventLink').value = ev.link || '';
+    document.getElementById('editIndex').value = idx;
+    document.getElementById('eventFormTitle').textContent = 'Edit Event';
+    document.getElementById('eventSubmitBtn').textContent = 'Update Event';
+    document.getElementById('eventCancelBtn').style.display = 'inline-block';
+    document.getElementById('eventForm').scrollIntoView({ behavior: 'smooth' });
+  }
+  
+  function cancelEdit() {
+    document.getElementById('editIndex').value = -1;
+    document.getElementById('eventFormTitle').textContent = 'Add New Event';
+    document.getElementById('eventSubmitBtn').textContent = 'Add Event';
+    document.getElementById('eventCancelBtn').style.display = 'none';
+    document.getElementById('eventForm').reset();
+  }
+  
+  async function deleteEvent(idx) {
+    if (!confirm('Delete "' + eventsData[idx].name + '"?')) return;
+    eventsData.splice(idx, 1);
+    try {
+      await saveEvents();
+      showToast('Event deleted');
+      renderEvents();
+    } catch (err) {
+      showToast('Error: ' + err.message, true);
+    }
+  }
+  
+  // ======================
+  // NOTES
+  // ======================
+  function loadNotes() {
+    const notes = localStorage.getItem('ej-admin-notes') || '';
+    document.getElementById('notesArea').value = notes;
+  }
+  
+  function saveNotes() {
+    localStorage.setItem('ej-admin-notes', document.getElementById('notesArea').value);
+    document.getElementById('saveStatus').textContent = 'Saved ✓ — ' + new Date().toLocaleTimeString();
+    showToast('Notes saved!');
+  }
+  
+  // Auto-save notes on typing (debounced)
+  let notesTimer;
+  document.getElementById('notesArea').addEventListener('input', () => {
+    document.getElementById('saveStatus').textContent = 'Unsaved changes...';
+    clearTimeout(notesTimer);
+    notesTimer = setTimeout(() => {
+      saveNotes();
+    }, 2000);
+  });
+  
+  // ======================
+  // HELPERS
+  // ======================
+  function escHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+  
+  function formatDate(dateStr) {
+    const d = new Date(dateStr + 'T00:00:00');
+    return d.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+  }
+  
+  function showToast(msg, isError) {
+    const toast = document.getElementById('toast');
+    toast.textContent = msg;
+    toast.className = 'toast show' + (isError ? ' error' : '');
+    setTimeout(() => toast.className = 'toast', 3000);
+  }
+  </script>
+</body>
+</html>

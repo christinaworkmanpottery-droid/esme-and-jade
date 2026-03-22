@@ -54,6 +54,7 @@
         <li><a href="#astrology">Astrology</a></li>
         <li><a href="#blog">Blog</a></li>
         <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#events">Events</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="https://esmeandjade.etsy.com" target="_blank" rel="noopener" class="nav-shop-link">Shop ↗</a></li>
@@ -288,6 +289,21 @@
     </div>
   </section>
 
+  <!-- Events & Promotions -->
+  <section class="section events" id="events">
+    <div class="container">
+      <div class="section-label">What's Happening</div>
+      <h2>Upcoming Events & Promotions</h2>
+      <div class="events-grid" id="eventsDisplay">
+        <div class="events-fallback">
+          <div class="events-fallback-icon">✨</div>
+          <p>Follow us for upcoming events!</p>
+          <a href="https://www.instagram.com/esmeandjadejewelry" target="_blank" rel="noopener" class="btn btn-outline" style="margin-top:16px">Follow on Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Contact -->
   <section class="section contact" id="contact">
     <div class="container">
@@ -330,7 +346,7 @@
           <a href="https://thepottersmudroom.com" target="_blank" rel="noopener">The Potter's Mud Room</a>
         </div>
       </div>
-      <div class="footer-bottom"><p>&copy; 2026 Esme & Jade — All Rights Reserved.</p></div>
+      <div class="footer-bottom"><p>&copy; 2026 Esme & Jade — All Rights Reserved. <a href="/admin.html" style="color:rgba(255,255,255,0.15);text-decoration:none;margin-left:8px" title="Admin">👑</a></p></div>
     </div>
   </footer>
 
@@ -405,6 +421,45 @@
         openModal(link.getAttribute('href'));
       });
     });
+  })();
+  </script>
+
+  <!-- Page View Tracking -->
+  <script>
+  (function(){
+    var data=JSON.parse(localStorage.getItem('ej-pageviews')||'{}');
+    var today=new Date().toISOString().slice(0,10);
+    data[today]=(data[today]||0)+1;
+    localStorage.setItem('ej-pageviews',JSON.stringify(data));
+  })();
+  </script>
+
+  <!-- Fetch & Display Events -->
+  <script>
+  (function(){
+    var container=document.getElementById('eventsDisplay');
+    if(!container)return;
+    fetch('https://raw.githubusercontent.com/christinaworkmanpottery-droid/esme-and-jade/main/events.json')
+      .then(function(r){if(!r.ok)throw new Error();return r.json()})
+      .then(function(events){
+        if(!events||!events.length)return;
+        var now=new Date().toISOString().slice(0,10);
+        var upcoming=events.filter(function(e){return e.date>=now}).sort(function(a,b){return a.date.localeCompare(b.date)});
+        if(!upcoming.length)return;
+        var html='';
+        upcoming.forEach(function(ev){
+          var d=new Date(ev.date+'T00:00:00');
+          var dateStr=d.toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+          html+='<div class="event-card">';
+          html+='<div class="event-card-date">'+dateStr+'</div>';
+          html+='<h3>'+ev.name+'</h3>';
+          if(ev.description)html+='<p>'+ev.description+'</p>';
+          if(ev.link)html+='<a href="'+ev.link+'" target="_blank" rel="noopener" class="event-card-link">Learn More →</a>';
+          html+='</div>';
+        });
+        container.innerHTML=html;
+      })
+      .catch(function(){});
   })();
   </script>
 </body>
