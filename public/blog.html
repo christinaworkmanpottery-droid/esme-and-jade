@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Esme & Jade</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .blog-container { max-width:800px; margin:0 auto; padding:120px 20px 40px; }
+        .blog-header { text-align:center; margin-bottom:40px; }
+        .blog-header h1 { font-family:'Playfair Display',serif; font-size:2.5em; color:#1a1525; }
+        .post-card { background:#fff; border:1px solid #dcc8e8; border-radius:12px; padding:24px; margin-bottom:20px; transition:all 0.3s; }
+        .post-card:hover { transform:translateY(-3px); box-shadow:0 8px 20px rgba(155,89,182,0.1); }
+        .post-card h2 { font-family:'Playfair Display',serif; font-size:1.5em; color:#1a1525; margin-bottom:8px; }
+        .post-card h2 a { color:inherit; text-decoration:none; }
+        .post-card h2 a:hover { color:#9B59B6; }
+        .post-meta { font-size:0.85em; color:#999; margin-bottom:12px; }
+        .post-excerpt { color:#555; line-height:1.6; }
+        .read-more { color:#9B59B6; text-decoration:none; font-weight:500; margin-top:10px; display:inline-block; }
+        .full-post { line-height:1.8; color:#444; }
+        .full-post h2 { font-size:1.5em; margin:28px 0 14px; color:#1a1525; }
+        .full-post p { margin-bottom:14px; }
+        .full-post ul { margin:10px 0 14px 24px; }
+        .full-post li { margin-bottom:8px; }
+        .back-link { color:#9B59B6; text-decoration:none; font-size:0.9em; }
+    </style>
+</head>
+<body>
+<div class="blog-container">
+    <div class="blog-header">
+        <h1>💎 Blog</h1>
+    </div>
+    <div id="blogContent">Loading...</div>
+</div>
+<script>
+async function loadBlog() {
+    const el = document.getElementById('blogContent');
+    const slug = window.location.pathname.split('/blog/')[1];
+    
+    if (slug) {
+        try {
+            const res = await fetch('/api/blog/' + slug);
+            if (!res.ok) { el.innerHTML = '<p>Post not found.</p><a href="/blog" class="back-link">← Back to blog</a>'; return; }
+            const post = await res.json();
+            el.innerHTML = '<a href="/blog" class="back-link">← Back to blog</a>' +
+                '<h1 style="font-family:Playfair Display,serif;font-size:2em;margin:20px 0 8px;color:#1a1525">' + esc(post.title) + '</h1>' +
+                '<div class="post-meta">' + new Date(post.created_at).toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'}) + '</div>' +
+                '<div class="full-post">' + post.content + '</div>';
+        } catch(e) { el.innerHTML = '<p>Error loading post.</p>'; }
+    } else {
+        try {
+            const res = await fetch('/api/blog');
+            const posts = await res.json();
+            if (!posts.length) { el.innerHTML = '<p style="color:#999">No posts yet. Check back soon!</p>'; return; }
+            el.innerHTML = posts.map(p => 
+                '<div class="post-card">' +
+                '<h2><a href="/blog/' + esc(p.slug) + '">' + esc(p.title) + '</a></h2>' +
+                '<div class="post-meta">' + new Date(p.created_at).toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'}) + '</div>' +
+                '<div class="post-excerpt">' + esc(p.excerpt) + '</div>' +
+                '<a href="/blog/' + esc(p.slug) + '" class="read-more">Read more →</a>' +
+                '</div>'
+            ).join('');
+        } catch(e) { el.innerHTML = '<p>Error loading blog.</p>'; }
+    }
+}
+function esc(s) { if(!s) return ''; const d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
+loadBlog();
+</script>
+</body>
+</html>
