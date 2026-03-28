@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Payment - Christina Workman</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: letter portrait;
+    margin: 0;
+  }
+
+  body {
+    width: 8.5in;
+    height: 11in;
+    margin: 0 auto;
+    background: #ffffff;
+    font-family: 'Lato', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5in;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 0.4in;
+  }
+
+  .header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42pt;
+    color: #5C3D2E;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .header .tagline {
+    font-family: 'Lato', sans-serif;
+    font-size: 14pt;
+    font-weight: 300;
+    color: #8B6F5C;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .divider {
+    width: 3in;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #C4956A, transparent);
+    margin: 0.25in auto;
+  }
+
+  .qr-container {
+    display: flex;
+    justify-content: center;
+    gap: 1in;
+    margin: 0.3in 0;
+  }
+
+  .qr-box {
+    text-align: center;
+    width: 3in;
+  }
+
+  .qr-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 20pt;
+    color: #5C3D2E;
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .qr-image-wrapper {
+    width: 2.8in;
+    height: 2.8in;
+    margin: 0 auto;
+    border: 2px solid #D4B896;
+    border-radius: 12px;
+    padding: 10px;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .qr-image-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .qr-subtext {
+    font-size: 11pt;
+    color: #8B6F5C;
+    margin-top: 10px;
+    font-weight: 400;
+  }
+
+  .qr-subtext-small {
+    font-size: 9pt;
+    color: #a89080;
+    margin-top: 4px;
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 0.4in;
+  }
+
+  .footer .thanks {
+    font-family: 'Playfair Display', serif;
+    font-size: 16pt;
+    color: #5C3D2E;
+    font-style: italic;
+  }
+
+  .footer .heart {
+    font-size: 14pt;
+    color: #C4956A;
+    margin-top: 4px;
+  }
+
+  @media print {
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Christina Workman</h1>
+    <div class="tagline">Pottery · Jewelry · Healing & Energy Work</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="qr-container">
+    <div class="qr-box">
+      <div class="qr-label">Zelle</div>
+      <div class="qr-image-wrapper">
+        <img src="https://i.postimg.cc/MvL57yM3/IMG-0979.jpg" alt="Zelle QR Code">
+      </div>
+      <div class="qr-subtext">Rousseau Flooring<br>& Design Inc</div>
+    </div>
+
+    <div class="qr-box">
+      <div class="qr-label">Venmo</div>
+      <div class="qr-image-wrapper">
+        <img src="https://i.postimg.cc/D8N6rqJB/IMG-0976.jpg" alt="Venmo QR Code">
+      </div>
+      <div class="qr-subtext">@Cworkman9157</div>
+      <div class="qr-subtext-small">Christina Workman</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="footer">
+    <div class="thanks">Thank you for supporting handmade</div>
+    <div class="heart">♥</div>
+  </div>
+
+</body>
+</html>
