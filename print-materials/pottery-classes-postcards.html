@@ -27,10 +27,11 @@
     grid-template-rows: 1fr 1fr;
     gap: 0;
     padding: 0.25in;
+    position: relative;
   }
 
   .postcard {
-    border: 1px dashed #ccc;
+    border: none;
     padding: 0.25in 0.3in;
     display: flex;
     flex-direction: column;
@@ -160,8 +161,30 @@
       print-color-adjust: exact;
     }
     .postcard {
-      border: 1px dashed #ccc;
+      border: none;
     }
+  }
+
+  /* Cut guides - just 2 lines: 1 horizontal center, 1 vertical center */
+  body::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0.15in;
+    right: 0.15in;
+    height: 0;
+    border-top: 1px dashed #bbb;
+    z-index: 10;
+  }
+  body::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0.15in;
+    bottom: 0.15in;
+    width: 0;
+    border-left: 1px dashed #bbb;
+    z-index: 10;
   }
 </style>
 </head>

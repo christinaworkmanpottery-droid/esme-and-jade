@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Join Our Mailing List Postcards</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Lato:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: letter portrait;
+    margin: 0;
+  }
+
+  body {
+    width: 8.5in;
+    height: 11in;
+    margin: 0 auto;
+    background: #ffffff;
+    font-family: 'Lato', sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0;
+    padding: 0.25in;
+    position: relative;
+  }
+
+  /* Cut guides - just 2 lines */
+  body::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0.15in;
+    right: 0.15in;
+    height: 0;
+    border-top: 1px dashed #bbb;
+    z-index: 10;
+  }
+  body::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0.15in;
+    bottom: 0.15in;
+    width: 0;
+    border-left: 1px dashed #bbb;
+    z-index: 10;
+  }
+
+  .postcard {
+    border: none;
+    padding: 0.3in;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  /* Christina Workman Pottery - earthy brown */
+  .postcard.cwp {
+    font-family: 'Lato', sans-serif;
+  }
+  .cwp .pc-header h1 {
+    font-family: 'Playfair Display', serif;
+    color: #5C3D2E;
+    font-size: 16pt;
+    margin-bottom: 4px;
+  }
+  .cwp .pc-header .sub {
+    color: #8B6F5C;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .cwp .divider {
+    background: linear-gradient(to right, transparent, #C4956A, transparent);
+  }
+  .cwp .pc-body p { color: #3a3a3a; }
+  .cwp .qr-border { border-color: #D4B896; }
+  .cwp .brand-name { color: #5C3D2E; font-family: 'Playfair Display', serif; }
+  .cwp .ig-handle { color: #5C3D2E; }
+
+  /* Luce Healing - dark elegant gold */
+  .postcard.luce {
+    font-family: 'Inter', sans-serif;
+  }
+  .luce .pc-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    color: #1a1a1a;
+    font-size: 16pt;
+    margin-bottom: 4px;
+  }
+  .luce .pc-header .sub {
+    color: #666;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .luce .divider {
+    background: linear-gradient(to right, transparent, #D4AF37, transparent);
+  }
+  .luce .pc-body p { color: #2a2a2a; }
+  .luce .qr-border { border-color: #D4AF37; }
+  .luce .brand-name { color: #1a1a1a; font-family: 'Cormorant Garamond', serif; }
+  .luce .ig-handle { color: #B8960C; }
+
+  /* Esme & Jade - elegant jewel tones */
+  .postcard.ej {
+    font-family: 'Inter', sans-serif;
+  }
+  .ej .pc-header h1 {
+    font-family: 'Playfair Display', serif;
+    color: #2D5F4A;
+    font-size: 16pt;
+    margin-bottom: 4px;
+  }
+  .ej .pc-header .sub {
+    color: #6B9E85;
+    font-size: 8pt;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  .ej .divider {
+    background: linear-gradient(to right, transparent, #6B9E85, transparent);
+  }
+  .ej .pc-body p { color: #2a2a2a; }
+  .ej .qr-border { border-color: #6B9E85; }
+  .ej .brand-name { color: #2D5F4A; font-family: 'Playfair Display', serif; }
+  .ej .ig-handle { color: #2D5F4A; }
+
+  /* Shared styles */
+  .pc-header { margin-bottom: 0.1in; }
+
+  .divider {
+    width: 2in;
+    height: 2px;
+    margin: 0.08in auto;
+  }
+
+  .pc-body {
+    margin: 0.08in 0;
+  }
+
+  .pc-body p {
+    font-size: 8.5pt;
+    line-height: 1.5;
+    max-width: 3in;
+    margin: 0 auto;
+  }
+
+  .qr-wrapper {
+    margin: 0.12in auto;
+  }
+
+  .qr-border {
+    border: 2px solid;
+    border-radius: 10px;
+    padding: 6px;
+    display: inline-block;
+  }
+
+  .qr-border img {
+    width: 1.3in;
+    height: 1.3in;
+    display: block;
+  }
+
+  .scan-label {
+    font-size: 7.5pt;
+    color: #555;
+    margin-top: 6px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .brand-name {
+    font-size: 11pt;
+    font-weight: 600;
+    margin-top: 0.08in;
+  }
+
+  .ig-handle {
+    font-size: 8.5pt;
+    margin-top: 3px;
+    font-weight: 500;
+  }
+
+  .website {
+    font-size: 7.5pt;
+    color: #666;
+    margin-top: 2px;
+  }
+
+  @media print {
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- 1. Christina Workman Pottery -->
+<div class="postcard cwp">
+  <div class="pc-header">
+    <h1>Stay in the Loop</h1>
+    <div class="sub">Join the Mailing List</div>
+  </div>
+  <div class="divider"></div>
+  <div class="pc-body">
+    <p>Be the first to know about new pieces, upcoming markets, studio sales, and pottery class openings. No spam — just the good stuff.</p>
+  </div>
+  <div class="qr-wrapper">
+    <div class="qr-border">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://christinaworkmanpottery.com/#mailing" alt="Sign Up QR">
+    </div>
+    <div class="scan-label">Scan to Sign Up</div>
+  </div>
+  <div class="brand-name">Christina Workman Pottery</div>
+  <div class="ig-handle">@christinaworkmanpottery</div>
+  <div class="website">christinaworkmanpottery.com</div>
+</div>
+
+<!-- 2. Luce Healing -->
+<div class="postcard luce">
+  <div class="pc-header">
+    <h1>Stay Connected</h1>
+    <div class="sub">Join the Mailing List</div>
+  </div>
+  <div class="divider"></div>
+  <div class="pc-body">
+    <p>Get healing tips, astrology insights, upcoming events, and exclusive offers delivered to your inbox. Your energy matters — stay in the know.</p>
+  </div>
+  <div class="qr-wrapper">
+    <div class="qr-border">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://lucehealing.com/#newsletter" alt="Sign Up QR">
+    </div>
+    <div class="scan-label">Scan to Sign Up</div>
+  </div>
+  <div class="brand-name">Luce Healing</div>
+  <div class="ig-handle">@lucehealing13</div>
+  <div class="website">lucehealing.com</div>
+</div>
+
+<!-- 3. Esme & Jade -->
+<div class="postcard ej">
+  <div class="pc-header">
+    <h1>Stay Sparkling</h1>
+    <div class="sub">Join the Mailing List</div>
+  </div>
+  <div class="divider"></div>
+  <div class="pc-body">
+    <p>New jewelry drops, crystal guides, market dates, and special offers — all delivered to your inbox. Handcrafted with intention, just for you.</p>
+  </div>
+  <div class="qr-wrapper">
+    <div class="qr-border">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://esmeandjade.com/#newsletter" alt="Sign Up QR">
+    </div>
+    <div class="scan-label">Scan to Sign Up</div>
+  </div>
+  <div class="brand-name">Esme & Jade Jewelry</div>
+  <div class="ig-handle">@esmeandjadejewelry</div>
+  <div class="website">esmeandjade.com</div>
+</div>
+
+<!-- 4. Blank / duplicate of most popular or all 3 mini -->
+<div class="postcard cwp">
+  <div class="pc-header">
+    <h1>Stay in the Loop</h1>
+    <div class="sub">Join the Mailing List</div>
+  </div>
+  <div class="divider"></div>
+  <div class="pc-body">
+    <p>Be the first to know about new pieces, upcoming markets, studio sales, and pottery class openings. No spam — just the good stuff.</p>
+  </div>
+  <div class="qr-wrapper">
+    <div class="qr-border">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://christinaworkmanpottery.com/#mailing" alt="Sign Up QR">
+    </div>
+    <div class="scan-label">Scan to Sign Up</div>
+  </div>
+  <div class="brand-name">Christina Workman Pottery</div>
+  <div class="ig-handle">@christinaworkmanpottery</div>
+  <div class="website">christinaworkmanpottery.com</div>
+</div>
+
+</body>
+</html>
