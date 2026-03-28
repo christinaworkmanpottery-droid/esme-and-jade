@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing Signs - Christina Workman Pottery</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;500;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: letter portrait;
+    margin: 0;
+  }
+
+  body {
+    width: 8.5in;
+    height: 11in;
+    margin: 0 auto;
+    background: #ffffff;
+    font-family: 'Lato', sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    display: flex;
+    flex-direction: column;
+    padding: 0.3in;
+    gap: 0.2in;
+    position: relative;
+  }
+
+  .sign {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0.3in;
+  }
+
+  .sign-top {
+    border-bottom: 2px solid #D4B896;
+    padding-bottom: 0.15in;
+    margin-bottom: 0.15in;
+  }
+
+  /* Cut guide */
+  body::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0.15in;
+    right: 0.15in;
+    height: 0;
+    border-top: 1px dashed #bbb;
+    z-index: 10;
+  }
+
+  .item-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 28pt;
+    color: #5C3D2E;
+    font-weight: 600;
+    margin-bottom: 0.1in;
+  }
+
+  .price-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 52pt;
+    color: #5C3D2E;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .price-unit {
+    font-family: 'Lato', sans-serif;
+    font-size: 14pt;
+    color: #8B6F5C;
+    font-weight: 400;
+    margin-top: 4px;
+    letter-spacing: 1px;
+  }
+
+  .tagline {
+    font-size: 11pt;
+    color: #8B6F5C;
+    margin-top: 0.12in;
+    font-style: italic;
+    letter-spacing: 0.5px;
+  }
+
+  .brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 12pt;
+    color: #C4956A;
+    margin-top: 0.1in;
+    letter-spacing: 1px;
+  }
+
+  .highlight-box {
+    margin-top: 0.15in;
+    padding: 10px 30px;
+    border: 2px solid #C4956A;
+    border-radius: 8px;
+    font-family: 'Playfair Display', serif;
+    font-size: 16pt;
+    color: #5C3D2E;
+    font-weight: 600;
+  }
+
+  @media print {
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Sign 3: Large Bowls -->
+<div class="sign sign-top">
+  <div class="item-name">Large Bowls</div>
+  <div class="price-main">$80</div>
+  <div class="price-unit">each</div>
+  <div class="tagline">Handmade · No Tax</div>
+  <div class="brand">Christina Workman Pottery</div>
+</div>
+
+<!-- Sign 4: Vases with Flowers -->
+<div class="sign">
+  <div class="item-name">Vases</div>
+  <div class="price-main">$50 – $80</div>
+  <div class="price-unit">varies by size</div>
+  <div class="highlight-box">Flowers included! 🌸</div>
+  <div class="tagline">Handmade · No Tax</div>
+  <div class="brand">Christina Workman Pottery</div>
+</div>
+
+</body>
+</html>
