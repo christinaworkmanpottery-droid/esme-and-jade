@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Astrology Forecast Postcards</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: letter portrait;
+    margin: 0;
+  }
+
+  body {
+    width: 8.5in;
+    height: 11in;
+    margin: 0 auto;
+    background: #ffffff;
+    font-family: 'Inter', sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0;
+    padding: 0.25in;
+  }
+
+  .postcard {
+    border: 1px dashed #ccc;
+    padding: 0.2in 0.28in;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #ffffff;
+  }
+
+  .pc-header {
+    text-align: center;
+    margin-bottom: 0.08in;
+    padding-bottom: 0.06in;
+    border-bottom: 2px solid #D4AF37;
+  }
+
+  .pc-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15pt;
+    color: #1a1a1a;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+    font-weight: 600;
+  }
+
+  .pc-header .sub {
+    font-size: 7pt;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 400;
+  }
+
+  .pc-body {
+    flex: 1;
+    font-size: 7pt;
+    line-height: 1.4;
+    color: #2a2a2a;
+  }
+
+  .pc-body .intro {
+    text-align: center;
+    font-style: italic;
+    color: #444;
+    margin: 0.06in 0;
+    font-size: 7pt;
+  }
+
+  .pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0.06in 0;
+  }
+
+  .pricing-table td {
+    padding: 4px 6px;
+    font-size: 7.5pt;
+  }
+
+  .pricing-table tr {
+    border-bottom: 1px solid #e8e0d0;
+  }
+
+  .pricing-table tr:last-child {
+    border-bottom: none;
+  }
+
+  .pricing-table .tier-name {
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+
+  .pricing-table .tier-price {
+    text-align: right;
+    font-weight: 700;
+    color: #B8960C;
+    font-size: 8.5pt;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .pc-body .details {
+    font-size: 6.8pt;
+    color: #333;
+    margin: 0.04in 0;
+    line-height: 1.45;
+  }
+
+  .pc-body .highlight {
+    color: #B8960C;
+    font-weight: 600;
+  }
+
+  .pc-body .how-it-works {
+    font-size: 6.8pt;
+    margin: 0.04in 0;
+  }
+
+  .pc-body .how-it-works .step {
+    margin-bottom: 2px;
+  }
+
+  .pc-body .step-num {
+    font-weight: 700;
+    color: #B8960C;
+  }
+
+  .pc-footer {
+    border-top: 2px solid #D4AF37;
+    padding-top: 0.06in;
+    margin-top: 0.05in;
+    display: flex;
+    align-items: center;
+    gap: 0.1in;
+  }
+
+  .pc-footer .qr-code img {
+    width: 0.8in;
+    height: 0.8in;
+    border: 1px solid #D4AF37;
+    border-radius: 4px;
+    padding: 3px;
+  }
+
+  .pc-footer .footer-text {
+    flex: 1;
+  }
+
+  .pc-footer .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 9pt;
+    color: #1a1a1a;
+    font-weight: 600;
+  }
+
+  .pc-footer .contact {
+    font-size: 6.5pt;
+    color: #2a2a2a;
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+
+  .pc-footer .scan-note {
+    font-size: 5.5pt;
+    color: #888;
+    margin-top: 2px;
+    font-style: italic;
+  }
+
+  @media print {
+    body {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Postcard 1 -->
+<div class="postcard">
+  <div class="pc-header">
+    <h1>Personalized Astrology Forecast</h1>
+    <div class="sub">Written by Christina Workman · Luce Healing</div>
+  </div>
+  <div class="pc-body">
+    <p class="intro">A detailed written forecast based on your unique natal chart — delivered straight to your inbox.</p>
+
+    <table class="pricing-table">
+      <tr>
+        <td class="tier-name">3-Month Forecast</td>
+        <td class="tier-price">$30</td>
+      </tr>
+      <tr>
+        <td class="tier-name">6-Month Forecast</td>
+        <td class="tier-price">$50</td>
+      </tr>
+      <tr>
+        <td class="tier-name">12-Month Forecast</td>
+        <td class="tier-price">$100</td>
+      </tr>
+    </table>
+
+    <p class="details">Each forecast covers upcoming planetary transits, key dates to watch, areas of growth, challenges to navigate, and personalized guidance based on <span class="highlight">your birth date, time, and location</span>.</p>
+
+    <div class="how-it-works">
+      <div class="step"><span class="step-num">1.</span> Scan the QR code & place your order</div>
+      <div class="step"><span class="step-num">2.</span> Enter your birth details at checkout</div>
+      <div class="step"><span class="step-num">3.</span> Receive your forecast via email within 24 hours</div>
+    </div>
+
+    <p class="details" style="margin-top:0.04in;"><span class="highlight">Want a live reading instead?</span> Book a 1-on-1 chart reading session at lucehealing.com</p>
+  </div>
+  <div class="pc-footer">
+    <div class="qr-code">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://lucehealing.com/forecast" alt="Order QR Code">
+    </div>
+    <div class="footer-text">
+      <div class="brand">Luce Healing</div>
+      <div class="contact">
+        lucehealing.com · @lucehealing13<br>
+        Christina Workman · Certified Reiki Master
+      </div>
+      <div class="scan-note">Scan to order online</div>
+    </div>
+  </div>
+</div>
+
+<!-- Postcard 2 -->
+<div class="postcard">
+  <div class="pc-header">
+    <h1>Personalized Astrology Forecast</h1>
+    <div class="sub">Written by Christina Workman · Luce Healing</div>
+  </div>
+  <div class="pc-body">
+    <p class="intro">A detailed written forecast based on your unique natal chart — delivered straight to your inbox.</p>
+
+    <table class="pricing-table">
+      <tr>
+        <td class="tier-name">3-Month Forecast</td>
+        <td class="tier-price">$30</td>
+      </tr>
+      <tr>
+        <td class="tier-name">6-Month Forecast</td>
+        <td class="tier-price">$50</td>
+      </tr>
+      <tr>
+        <td class="tier-name">12-Month Forecast</td>
+        <td class="tier-price">$100</td>
+      </tr>
+    </table>
+
+    <p class="details">Each forecast covers upcoming planetary transits, key dates to watch, areas of growth, challenges to navigate, and personalized guidance based on <span class="highlight">your birth date, time, and location</span>.</p>
+
+    <div class="how-it-works">
+      <div class="step"><span class="step-num">1.</span> Scan the QR code & place your order</div>
+      <div class="step"><span class="step-num">2.</span> Enter your birth details at checkout</div>
+      <div class="step"><span class="step-num">3.</span> Receive your forecast via email within 24 hours</div>
+    </div>
+
+    <p class="details" style="margin-top:0.04in;"><span class="highlight">Want a live reading instead?</span> Book a 1-on-1 chart reading session at lucehealing.com</p>
+  </div>
+  <div class="pc-footer">
+    <div class="qr-code">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://lucehealing.com/forecast" alt="Order QR Code">
+    </div>
+    <div class="footer-text">
+      <div class="brand">Luce Healing</div>
+      <div class="contact">
+        lucehealing.com · @lucehealing13<br>
+        Christina Workman · Certified Reiki Master
+      </div>
+      <div class="scan-note">Scan to order online</div>
+    </div>
+  </div>
+</div>
+
+<!-- Postcard 3 -->
+<div class="postcard">
+  <div class="pc-header">
+    <h1>Personalized Astrology Forecast</h1>
+    <div class="sub">Written by Christina Workman · Luce Healing</div>
+  </div>
+  <div class="pc-body">
+    <p class="intro">A detailed written forecast based on your unique natal chart — delivered straight to your inbox.</p>
+
+    <table class="pricing-table">
+      <tr>
+        <td class="tier-name">3-Month Forecast</td>
+        <td class="tier-price">$30</td>
+      </tr>
+      <tr>
+        <td class="tier-name">6-Month Forecast</td>
+        <td class="tier-price">$50</td>
+      </tr>
+      <tr>
+        <td class="tier-name">12-Month Forecast</td>
+        <td class="tier-price">$100</td>
+      </tr>
+    </table>
+
+    <p class="details">Each forecast covers upcoming planetary transits, key dates to watch, areas of growth, challenges to navigate, and personalized guidance based on <span class="highlight">your birth date, time, and location</span>.</p>
+
+    <div class="how-it-works">
+      <div class="step"><span class="step-num">1.</span> Scan the QR code & place your order</div>
+      <div class="step"><span class="step-num">2.</span> Enter your birth details at checkout</div>
+      <div class="step"><span class="step-num">3.</span> Receive your forecast via email within 24 hours</div>
+    </div>
+
+    <p class="details" style="margin-top:0.04in;"><span class="highlight">Want a live reading instead?</span> Book a 1-on-1 chart reading session at lucehealing.com</p>
+  </div>
+  <div class="pc-footer">
+    <div class="qr-code">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://lucehealing.com/forecast" alt="Order QR Code">
+    </div>
+    <div class="footer-text">
+      <div class="brand">Luce Healing</div>
+      <div class="contact">
+        lucehealing.com · @lucehealing13<br>
+        Christina Workman · Certified Reiki Master
+      </div>
+      <div class="scan-note">Scan to order online</div>
+    </div>
+  </div>
+</div>
+
+<!-- Postcard 4 -->
+<div class="postcard">
+  <div class="pc-header">
+    <h1>Personalized Astrology Forecast</h1>
+    <div class="sub">Written by Christina Workman · Luce Healing</div>
+  </div>
+  <div class="pc-body">
+    <p class="intro">A detailed written forecast based on your unique natal chart — delivered straight to your inbox.</p>
+
+    <table class="pricing-table">
+      <tr>
+        <td class="tier-name">3-Month Forecast</td>
+        <td class="tier-price">$30</td>
+      </tr>
+      <tr>
+        <td class="tier-name">6-Month Forecast</td>
+        <td class="tier-price">$50</td>
+      </tr>
+      <tr>
+        <td class="tier-name">12-Month Forecast</td>
+        <td class="tier-price">$100</td>
+      </tr>
+    </table>
+
+    <p class="details">Each forecast covers upcoming planetary transits, key dates to watch, areas of growth, challenges to navigate, and personalized guidance based on <span class="highlight">your birth date, time, and location</span>.</p>
+
+    <div class="how-it-works">
+      <div class="step"><span class="step-num">1.</span> Scan the QR code & place your order</div>
+      <div class="step"><span class="step-num">2.</span> Enter your birth details at checkout</div>
+      <div class="step"><span class="step-num">3.</span> Receive your forecast via email within 24 hours</div>
+    </div>
+
+    <p class="details" style="margin-top:0.04in;"><span class="highlight">Want a live reading instead?</span> Book a 1-on-1 chart reading session at lucehealing.com</p>
+  </div>
+  <div class="pc-footer">
+    <div class="qr-code">
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://lucehealing.com/forecast" alt="Order QR Code">
+    </div>
+    <div class="footer-text">
+      <div class="brand">Luce Healing</div>
+      <div class="contact">
+        lucehealing.com · @lucehealing13<br>
+        Christina Workman · Certified Reiki Master
+      </div>
+      <div class="scan-note">Scan to order online</div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
