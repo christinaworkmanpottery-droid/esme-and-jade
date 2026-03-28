@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Find Me Online - Christina Workman</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;500;700&display=swap');
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -30,22 +30,22 @@
 
   .header {
     text-align: center;
-    margin-bottom: 0.2in;
+    margin-bottom: 0.25in;
   }
 
   .header h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 32pt;
+    font-size: 36pt;
     color: #5C3D2E;
     letter-spacing: 1px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
   }
 
   .header .tagline {
     font-family: 'Lato', sans-serif;
-    font-size: 12pt;
-    font-weight: 300;
-    color: #8B6F5C;
+    font-size: 13pt;
+    font-weight: 400;
+    color: #3a2a20;
     letter-spacing: 3px;
     text-transform: uppercase;
   }
@@ -54,16 +54,19 @@
     width: 3in;
     height: 2px;
     background: linear-gradient(to right, transparent, #C4956A, transparent);
-    margin: 0.15in auto;
+    margin: 0.2in auto;
   }
 
   .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.25in 0.6in;
-    margin-top: 0.15in;
+    grid-template-rows: 1fr 1fr;
+    gap: 0.4in 0.8in;
+    flex: 1;
     width: 100%;
-    max-width: 7in;
+    max-width: 7.5in;
+    margin-top: 0.2in;
+    align-items: center;
   }
 
   .brand-card {
@@ -73,25 +76,25 @@
 
   .brand-name {
     font-family: 'Playfair Display', serif;
-    font-size: 15pt;
+    font-size: 16pt;
     color: #5C3D2E;
     font-weight: 600;
     margin-bottom: 6px;
   }
 
   .brand-type {
-    font-size: 9pt;
-    color: #a89080;
+    font-size: 9.5pt;
+    color: #5a4a3e;
     text-transform: uppercase;
     letter-spacing: 2px;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
 
   .qr-row {
     display: flex;
     justify-content: center;
-    gap: 12px;
-    margin-bottom: 6px;
+    gap: 0.3in;
+    margin-bottom: 10px;
   }
 
   .qr-item {
@@ -99,59 +102,60 @@
   }
 
   .qr-item img {
-    width: 1.2in;
-    height: 1.2in;
+    width: 1.35in;
+    height: 1.35in;
     border: 1.5px solid #D4B896;
     border-radius: 8px;
-    padding: 4px;
+    padding: 5px;
     background: #ffffff;
     object-fit: contain;
   }
 
   .qr-item-label {
-    font-size: 7.5pt;
-    color: #8B6F5C;
-    margin-top: 3px;
-    font-weight: 400;
+    font-size: 8pt;
+    color: #5a4a3e;
+    margin-top: 4px;
+    font-weight: 500;
   }
 
   .brand-url {
-    font-size: 9.5pt;
+    font-size: 10pt;
     color: #5C3D2E;
-    margin-top: 4px;
+    margin-top: 6px;
+    font-weight: 500;
   }
 
   .brand-ig {
-    font-size: 9pt;
-    color: #8B6F5C;
-    margin-top: 2px;
-  }
-
-  .divider-thin {
-    width: 2in;
-    height: 1px;
-    background: linear-gradient(to right, transparent, #D4B896, transparent);
-    margin: 0.05in auto;
+    font-size: 9.5pt;
+    color: #5a4a3e;
+    margin-top: 3px;
   }
 
   .footer {
     text-align: center;
-    margin-top: auto;
+    margin-top: 0.2in;
     padding-bottom: 0.1in;
+  }
+
+  .divider-footer {
+    width: 3in;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #C4956A, transparent);
+    margin: 0.15in auto;
   }
 
   .footer .scan-text {
     font-family: 'Lato', sans-serif;
-    font-size: 11pt;
-    color: #8B6F5C;
-    font-weight: 300;
+    font-size: 12pt;
+    color: #3a2a20;
+    font-weight: 400;
     letter-spacing: 1px;
   }
 
   .footer .heart {
-    font-size: 12pt;
+    font-size: 14pt;
     color: #C4956A;
-    margin-top: 2px;
+    margin-top: 4px;
   }
 
   @media print {
@@ -179,11 +183,11 @@
       <div class="brand-type">Handmade Ceramics</div>
       <div class="qr-row">
         <div class="qr-item">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://christinaworkmanpottery.com" alt="Website QR">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://christinaworkmanpottery.com" alt="Website QR">
           <div class="qr-item-label">Website</div>
         </div>
         <div class="qr-item">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://instagram.com/christinaworkmanpottery" alt="Instagram QR">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://instagram.com/christinaworkmanpottery" alt="Instagram QR">
           <div class="qr-item-label">Instagram</div>
         </div>
       </div>
@@ -197,11 +201,11 @@
       <div class="brand-type">Handcrafted Jewelry</div>
       <div class="qr-row">
         <div class="qr-item">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://esmeandjade.com" alt="Website QR">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://esmeandjade.com" alt="Website QR">
           <div class="qr-item-label">Website</div>
         </div>
         <div class="qr-item">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://instagram.com/esmeandjadejewelry" alt="Instagram QR">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://instagram.com/esmeandjadejewelry" alt="Instagram QR">
           <div class="qr-item-label">Instagram</div>
         </div>
       </div>
@@ -215,11 +219,11 @@
       <div class="brand-type">Healing & Energy Work</div>
       <div class="qr-row">
         <div class="qr-item">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://lucehealing.com" alt="Website QR">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://lucehealing.com" alt="Website QR">
           <div class="qr-item-label">Website</div>
         </div>
         <div class="qr-item">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://instagram.com/lucehealing13" alt="Instagram QR">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://instagram.com/lucehealing13" alt="Instagram QR">
           <div class="qr-item-label">Instagram</div>
         </div>
       </div>
@@ -233,11 +237,11 @@
       <div class="brand-type">Pottery Community</div>
       <div class="qr-row">
         <div class="qr-item">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://thepottersmudroom.com" alt="Website QR">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://thepottersmudroom.com" alt="Website QR">
           <div class="qr-item-label">Website</div>
         </div>
         <div class="qr-item">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://instagram.com/thepottersmudroom" alt="Instagram QR">
+          <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://instagram.com/thepottersmudroom" alt="Instagram QR">
           <div class="qr-item-label">Instagram</div>
         </div>
       </div>
@@ -247,7 +251,7 @@
 
   </div>
 
-  <div class="divider"></div>
+  <div class="divider-footer"></div>
 
   <div class="footer">
     <div class="scan-text">Scan any code with your phone camera</div>
