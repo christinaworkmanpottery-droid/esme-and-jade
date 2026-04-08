@@ -6,5 +6,21 @@
     "excerpt": "This week's astrology carries the feeling of a fresh beginning. We are in Aries season now, which brings movement, courage, and the desire to follow what feels true.",
     "published": 1,
     "created_at": "2026-03-23T21:00:00.000Z"
+  },
+  {
+    "id": "2",
+    "title": "The Art of Crystal Care: Purifying Your Stones and Protecting Their Energy",
+    "slug": "crystal-care-purifying-energy",
+    "excerpt": "Just as we need moments of stillness and cleansing to reset our own energy, our crystals also benefit from regular care.",
+    "published": 0,
+    "created_at": "2026-04-01T23:09:00.000Z"
+  },
+  {
+    "id": "3",
+    "title": "Chakra & Crystal Pairings: Align Your Energy from Root to Crown",
+    "slug": "chakra-crystal-pairings-align-your-energy",
+    "excerpt": "There is a quiet intelligence inside your body. Seven energy centers, seven crystals — each one a key to a different part of who you are.",
+    "published": 0,
+    "created_at": "2026-04-08T23:07:00.000Z"
   }
 ]

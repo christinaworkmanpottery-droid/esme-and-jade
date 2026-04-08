@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        .meme {
+            width: 1080px; height: 1080px;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            background: linear-gradient(160deg, #1a0e2e 0%, #2a1b4d 35%, #4a2068 65%, #2a1b4d 100%);
+            color: #fdf6e3;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            padding: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+        .meme::before {
+            content: '';
+            position: absolute;
+            top: 30px; left: 30px; right: 30px; bottom: 30px;
+            border: 1px solid rgba(248, 195, 125, 0.25);
+            border-radius: 8px;
+            pointer-events: none;
+        }
+        .chakra-dots {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 40px;
+        }
+        .dot {
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+        .dot.crown { background: #e8d5f5; box-shadow: 0 0 12px #e8d5f5; }
+        .dot.third-eye { background: #7b68ee; box-shadow: 0 0 12px #7b68ee; }
+        .dot.throat { background: #87ceeb; box-shadow: 0 0 12px #87ceeb; }
+        .dot.heart { background: #90ee90; box-shadow: 0 0 12px #90ee90; }
+        .dot.solar { background: #f0c060; box-shadow: 0 0 12px #f0c060; }
+        .dot.sacral { background: #e8833a; box-shadow: 0 0 12px #e8833a; }
+        .dot.root { background: #cd4545; box-shadow: 0 0 12px #cd4545; }
+        h1 {
+            font-size: 68px;
+            line-height: 1.15;
+            color: #f8c37d;
+            margin-bottom: 36px;
+            font-weight: 700;
+        }
+        p {
+            font-size: 42px;
+            line-height: 1.45;
+            color: rgba(255,255,255,0.9);
+            font-weight: 400;
+            max-width: 860px;
+        }
+        .footer {
+            margin-top: 50px;
+            font-size: 28px;
+            letter-spacing: 6px;
+            color: #f8c37d;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+    <div class="meme">
+        <div class="chakra-dots">
+            <div class="dot crown"></div>
+            <div class="dot third-eye"></div>
+            <div class="dot throat"></div>
+            <div class="dot heart"></div>
+            <div class="dot solar"></div>
+            <div class="dot sacral"></div>
+            <div class="dot root"></div>
+        </div>
+        <h1>Align Your Energy</h1>
+        <p>Every chakra holds a story.<br>The right crystal helps you<br>rewrite it.</p>
+        <div class="footer">Esme & Jade</div>
+    </div>
+</body>
+</html>
