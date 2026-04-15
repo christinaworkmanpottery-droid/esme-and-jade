@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; padding: 0; }
+        .meme {
+            width: 1080px; height: 1080px;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            background: linear-gradient(135deg, #1a0f33 0%, #2a1b4d 35%, #5c2c7d 70%, #3d1a5e 100%);
+            color: #fdf6e3;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            padding: 80px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Subtle geometric pattern overlay */
+        .meme::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px; height: 600px;
+            border: 1px solid rgba(248, 195, 125, 0.12);
+            border-radius: 50%;
+        }
+        .meme::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            width: 420px; height: 420px;
+            border: 1px solid rgba(248, 195, 125, 0.10);
+        }
+        .icon { font-size: 64px; margin-bottom: 30px; position: relative; z-index: 1; }
+        h1 { font-size: 72px; margin: 0 0 36px 0; color: #f8c37d; line-height: 1.15; position: relative; z-index: 1; }
+        p { font-size: 44px; line-height: 1.45; color: #e8dff0; margin: 0; position: relative; z-index: 1; max-width: 860px; }
+        .footer { margin-top: 70px; font-size: 28px; letter-spacing: 6px; color: #f8c37d; text-transform: uppercase; position: relative; z-index: 1; }
+    </style>
+</head>
+<body>
+    <div class="meme">
+        <div class="icon">🔮</div>
+        <h1>Crystal Grids</h1>
+        <p>One crystal is a candle.<br>A grid is a bonfire.<br>Arrange your stones with intention<br>and watch the energy multiply.</p>
+        <div class="footer">Esme & Jade</div>
+    </div>
+</body>
+</html>

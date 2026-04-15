@@ -12,6 +12,7 @@ const memes = [
   { html: 'tips-choosing-crystal.html', png: 'tips-choosing-crystal.png' },
   { html: 'crystal-care-meme.html', png: 'crystal-care-meme.png' },
   { html: 'chakra-crystal-pairings-meme.html', png: 'chakra-crystal-pairings-meme.png' },
+  { html: 'crystal-grids-meme.html', png: 'crystal-grids-meme.png' },
 ];
 
 (async () => {
