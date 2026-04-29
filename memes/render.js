@@ -13,6 +13,7 @@ const memes = [
   { html: 'crystal-care-meme.html', png: 'crystal-care-meme.png' },
   { html: 'chakra-crystal-pairings-meme.html', png: 'chakra-crystal-pairings-meme.png' },
   { html: 'crystal-grids-meme.html', png: 'crystal-grids-meme.png' },
+  { html: 'moon-rituals-meme.html', png: 'moon-rituals-meme.png' },
 ];
 
 (async () => {

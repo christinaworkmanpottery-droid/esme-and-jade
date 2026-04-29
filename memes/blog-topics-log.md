@@ -4,3 +4,4 @@
 - 2026-04-01: The Art of Crystal Care: Purifying Your Stones and Protecting Their Energy
 - 2026-04-08: Chakra & Crystal Pairings: Align Your Energy from Root to Crown
 - 2026-04-15: Crystal Grids: Sacred Geometry for Your Intentions
+- 2026-04-29: Moon Rituals with Crystals: A Cycle of Becoming

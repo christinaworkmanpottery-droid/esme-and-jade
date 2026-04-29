@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; padding: 0; }
+        .meme {
+            width: 1080px; height: 1080px;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            background: linear-gradient(135deg, #1a0f33 0%, #2a1b4d 30%, #4a2466 60%, #7d3a6b 100%);
+            color: #fdf6e3;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            padding: 80px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Moon glow */
+        .meme::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 720px; height: 720px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(248, 195, 125, 0.10) 0%, rgba(248, 195, 125, 0.04) 40%, transparent 70%);
+        }
+        /* Outer ring of moon phases (decorative) */
+        .meme::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 900px; height: 900px;
+            border: 1px solid rgba(248, 195, 125, 0.14);
+            border-radius: 50%;
+        }
+        .phases { position: absolute; top: 90px; left: 0; right: 0; text-align: center; font-size: 56px; letter-spacing: 14px; z-index: 1; }
+        .icon { font-size: 84px; margin-bottom: 24px; position: relative; z-index: 1; }
+        h1 { font-size: 78px; margin: 0 0 32px 0; color: #f8c37d; line-height: 1.1; position: relative; z-index: 1; letter-spacing: 1px; }
+        p { font-size: 42px; line-height: 1.5; color: #e8dff0; margin: 0; position: relative; z-index: 1; max-width: 880px; font-style: italic; }
+        .footer { margin-top: 72px; font-size: 28px; letter-spacing: 6px; color: #f8c37d; text-transform: uppercase; position: relative; z-index: 1; }
+    </style>
+</head>
+<body>
+    <div class="meme">
+        <div class="phases">🌑 🌒 🌓 🌔 🌕 🌖 🌗 🌘</div>
+        <div class="icon">🌙</div>
+        <h1>Moon Rituals</h1>
+        <p>Plant with the new.<br>Grow with the waxing.<br>Release with the waning.<br>Rest with the dark.<br>You are in rhythm.</p>
+        <div class="footer">Esme & Jade</div>
+    </div>
+</body>
+</html>
