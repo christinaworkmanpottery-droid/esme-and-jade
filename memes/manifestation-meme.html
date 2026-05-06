@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { margin: 0; padding: 0; }
+        .meme {
+            width: 1080px; height: 1080px;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            background: linear-gradient(135deg, #1a0f33 0%, #2a1b4d 35%, #4a2466 65%, #8b3a5e 100%);
+            color: #fdf6e3;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            padding: 90px;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Soft golden glow center */
+        .meme::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 760px; height: 760px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(248, 195, 125, 0.14) 0%, rgba(248, 195, 125, 0.05) 45%, transparent 75%);
+        }
+        /* Decorative outer ring */
+        .meme::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 920px; height: 920px;
+            border: 1px solid rgba(248, 195, 125, 0.16);
+            border-radius: 50%;
+        }
+        .top-stones {
+            position: absolute; top: 80px; left: 0; right: 0;
+            text-align: center; font-size: 52px; letter-spacing: 18px;
+            z-index: 1;
+        }
+        .icon { font-size: 92px; margin-bottom: 28px; position: relative; z-index: 1; }
+        h1 {
+            font-size: 84px; margin: 0 0 36px 0;
+            color: #f8c37d; line-height: 1.05;
+            position: relative; z-index: 1; letter-spacing: 1px;
+        }
+        p {
+            font-size: 40px; line-height: 1.55;
+            color: #f0e6f5; margin: 0;
+            position: relative; z-index: 1;
+            max-width: 880px; font-style: italic;
+        }
+        .footer {
+            margin-top: 80px; font-size: 28px;
+            letter-spacing: 7px; color: #f8c37d;
+            text-transform: uppercase;
+            position: relative; z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="meme">
+        <div class="top-stones">✨ 💎 🌹 💚 🔥 🖤</div>
+        <div class="icon">✨</div>
+        <h1>Manifest<br>With Intention</h1>
+        <p>Citrine for abundance.<br>Rose Quartz for love.<br>Clear Quartz to amplify.<br>Carnelian for courage.<br><br>The stone is the reminder.<br>You are the one who walks toward it.</p>
+        <div class="footer">Esme & Jade</div>
+    </div>
+</body>
+</html>

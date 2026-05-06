@@ -14,6 +14,7 @@ const memes = [
   { html: 'chakra-crystal-pairings-meme.html', png: 'chakra-crystal-pairings-meme.png' },
   { html: 'crystal-grids-meme.html', png: 'crystal-grids-meme.png' },
   { html: 'moon-rituals-meme.html', png: 'moon-rituals-meme.png' },
+  { html: 'manifestation-meme.html', png: 'manifestation-meme.png' },
 ];
 
 (async () => {
